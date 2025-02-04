@@ -4,13 +4,14 @@
 package springcorepractice;
 
 
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import springcorepractice.music.Music;
+
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
-
     public static void main(String[] args) {
-
-        System.out.println(new App().getGreeting());
+        ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
+        MusicPlayer musicPlayer = applicationContext.getBean("musicPlayer", MusicPlayer.class);
+        musicPlayer.playMusic();
+        applicationContext.close();
     }
 }
