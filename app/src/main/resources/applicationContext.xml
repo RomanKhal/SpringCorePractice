@@ -3,13 +3,44 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-       http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean id="music"
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="musicPlayer.properties"/>
+
+    <bean id="musicRock"
+          class="springcorepractice.music.RockMusic">
+    </bean>
+
+    <bean id="musicClassic"
           class="springcorepractice.music.ClassicalMusic">
     </bean>
+
+    <bean id="musicJazz"
+          class="springcorepractice.music.JazzMusic">
+    </bean>
+
     <bean id="musicPlayer"
-          class="springcorepractice.MusicPlayer">
-<!--        <constructor-arg ref="music"/>-->
-        <property name="music" ref="music"/>
+          class="springcorepractice.MusicPlayer"
+    scope="prototype">
+
+<!--        <constructor-arg>-->
+<!--            <list>-->
+<!--                <ref bean="musicRock"/>-->
+<!--                <ref bean="musicClassic"/>-->
+<!--                <ref bean="musicJazz"/>-->
+<!--            </list>-->
+<!--        </constructor-arg>-->
+
+        <property name="musicList">
+            <list>
+                <ref bean="musicRock"/>
+                <ref bean="musicClassic"/>
+                <ref bean="musicJazz"/>
+            </list>
+        </property>
+        <property name="name" value="${musicPlayer.name}"/>
+        <property name="volume" value="${musicPlayer.volume}"/>
     </bean>
 </beans>

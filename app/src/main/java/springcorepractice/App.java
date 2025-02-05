@@ -11,7 +11,13 @@ public class App {
     public static void main(String[] args) {
         ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
         MusicPlayer musicPlayer = applicationContext.getBean("musicPlayer", MusicPlayer.class);
-        musicPlayer.playMusic();
-        applicationContext.close();
+        MusicPlayer musicPlayer2 = applicationContext.getBean("musicPlayer", MusicPlayer.class);
+        boolean comp = musicPlayer == musicPlayer2;
+        System.out.println(comp);
+
+        System.out.println(musicPlayer);
+        System.out.println(musicPlayer2);
+//        musicPlayer.playMusic();
+//        applicationContext.close();
     }
 }
