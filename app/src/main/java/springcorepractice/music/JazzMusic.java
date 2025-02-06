@@ -8,7 +8,7 @@ import java.util.List;
 
 //@Component
 public class JazzMusic implements Music, InitDestroy {
-    List<String > songs = new ArrayList<>();
+    List<String > songs = List.of("jazz song1", "jazz song2", "jazz song3");
     @Override
     public List<String> getSongs() {
         return songs;

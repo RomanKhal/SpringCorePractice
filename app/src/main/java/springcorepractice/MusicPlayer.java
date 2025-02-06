@@ -12,15 +12,10 @@ import springcorepractice.music.MusicGenres;
 import java.util.List;
 import java.util.Random;
 
-@Component
-@Scope(scopeName = "prototype")
+//@Component
+//@Scope(scopeName = "prototype")
 public class MusicPlayer implements InitDestroy {
-    @Autowired
-    @Qualifier("rockMusic")
-    private Music music1;
-    @Autowired
-    @Qualifier("classicalMusic")
-    private Music music2;
+    private List<Music> musicList;
     @Value("${musicPlayer.name}")
     private String name;
     @Value("${musicPlayer.volume}")
@@ -29,6 +24,9 @@ public class MusicPlayer implements InitDestroy {
     public MusicPlayer() {
     }
 
+    public MusicPlayer(List<Music> list) {
+        this.musicList = list;
+    }
 
     public String getName() {
         return name;
@@ -46,16 +44,8 @@ public class MusicPlayer implements InitDestroy {
         this.volume = volume;
     }
 
-    public String playMusic(MusicGenres value) {
-        switch (value) {
-            case ROCK -> {
-                return chooseSong(music1);
-            }
-            case CLASSICAL -> {
-                return chooseSong(music2);
-            }
-        }
-        return "it's not a rock or classic genre";
+    public String playMusic() {
+        return chooseSong(musicList.get(new Random().nextInt(musicList.size())));
     }
 
     private String chooseSong(Music music) {

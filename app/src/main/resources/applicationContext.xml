@@ -1,57 +1,57 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans
-       http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://www.springframework.org/schema/context
-       http://www.springframework.org/schema/context/spring-context.xsd">
-<context:component-scan base-package="springcorepractice"/>
+<!--<?xml version="1.0" encoding="UTF-8" ?>-->
+<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
+<!--       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+<!--       xmlns:context="http://www.springframework.org/schema/context"-->
+<!--       xsi:schemaLocation="http://www.springframework.org/schema/beans-->
+<!--       http://www.springframework.org/schema/beans/spring-beans.xsd-->
+<!--       http://www.springframework.org/schema/context-->
+<!--       http://www.springframework.org/schema/context/spring-context.xsd">-->
+<!--<context:component-scan base-package="springcorepractice"/>-->
 
 
-    <context:property-placeholder location="musicPlayer.properties"/>
+<!--    <context:property-placeholder location="musicPlayer.properties"/>-->
 
-<!--    <bean id="musicRock"-->
-<!--          class="springcorepractice.music.RockMusic"-->
-<!--          init-method="doInit"-->
-<!--          destroy-method="doDestroy">-->
-<!--    </bean>-->
+<!--&lt;!&ndash;    <bean id="musicRock"&ndash;&gt;-->
+<!--&lt;!&ndash;          class="springcorepractice.music.RockMusic"&ndash;&gt;-->
+<!--&lt;!&ndash;          init-method="doInit"&ndash;&gt;-->
+<!--&lt;!&ndash;          destroy-method="doDestroy">&ndash;&gt;-->
+<!--&lt;!&ndash;    </bean>&ndash;&gt;-->
 
-<!--    <bean id="musicClassic"-->
-<!--          class="springcorepractice.music.ClassicalMusic"-->
-<!--          init-method="doInit"-->
-<!--          destroy-method="doDestroy"-->
-<!--          factory-method="getClassicalMusic">-->
-<!--    </bean>-->
+<!--&lt;!&ndash;    <bean id="musicClassic"&ndash;&gt;-->
+<!--&lt;!&ndash;          class="springcorepractice.music.ClassicalMusic"&ndash;&gt;-->
+<!--&lt;!&ndash;          init-method="doInit"&ndash;&gt;-->
+<!--&lt;!&ndash;          destroy-method="doDestroy"&ndash;&gt;-->
+<!--&lt;!&ndash;          factory-method="getClassicalMusic">&ndash;&gt;-->
+<!--&lt;!&ndash;    </bean>&ndash;&gt;-->
 
-<!--    <bean id="musicJazz"-->
-<!--          class="springcorepractice.music.JazzMusic"-->
-<!--          init-method="doInit"-->
-<!--          destroy-method="doDestroy">-->
-<!--    </bean>-->
+<!--&lt;!&ndash;    <bean id="musicJazz"&ndash;&gt;-->
+<!--&lt;!&ndash;          class="springcorepractice.music.JazzMusic"&ndash;&gt;-->
+<!--&lt;!&ndash;          init-method="doInit"&ndash;&gt;-->
+<!--&lt;!&ndash;          destroy-method="doDestroy">&ndash;&gt;-->
+<!--&lt;!&ndash;    </bean>&ndash;&gt;-->
 
-<!--    <bean id="musicPlayer"-->
-<!--          class="springcorepractice.MusicPlayer"-->
-<!--          scope="prototype"-->
-<!--          init-method="doInit"-->
-<!--          destroy-method="doDestroy">-->
+<!--&lt;!&ndash;    <bean id="musicPlayer"&ndash;&gt;-->
+<!--&lt;!&ndash;          class="springcorepractice.MusicPlayer"&ndash;&gt;-->
+<!--&lt;!&ndash;          scope="prototype"&ndash;&gt;-->
+<!--&lt;!&ndash;          init-method="doInit"&ndash;&gt;-->
+<!--&lt;!&ndash;          destroy-method="doDestroy">&ndash;&gt;-->
 
-<!--        &lt;!&ndash;        <constructor-arg>&ndash;&gt;-->
-<!--        &lt;!&ndash;            <list>&ndash;&gt;-->
-<!--        &lt;!&ndash;                <ref bean="musicRock"/>&ndash;&gt;-->
-<!--        &lt;!&ndash;                <ref bean="musicClassic"/>&ndash;&gt;-->
-<!--        &lt;!&ndash;                <ref bean="musicJazz"/>&ndash;&gt;-->
-<!--        &lt;!&ndash;            </list>&ndash;&gt;-->
-<!--        &lt;!&ndash;        </constructor-arg>&ndash;&gt;-->
+<!--&lt;!&ndash;        &lt;!&ndash;        <constructor-arg>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;        &lt;!&ndash;            <list>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;        &lt;!&ndash;                <ref bean="musicRock"/>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;        &lt;!&ndash;                <ref bean="musicClassic"/>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;        &lt;!&ndash;                <ref bean="musicJazz"/>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;        &lt;!&ndash;            </list>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;        &lt;!&ndash;        </constructor-arg>&ndash;&gt;&ndash;&gt;-->
 
-<!--        <property name="musicList">-->
-<!--            <list>-->
-<!--                <ref bean="musicRock"/>-->
-<!--                <ref bean="musicClassic"/>-->
-<!--                <ref bean="musicJazz"/>-->
-<!--            </list>-->
-<!--        </property>-->
-<!--        <property name="name" value="${musicPlayer.name}"/>-->
-<!--        <property name="volume" value="${musicPlayer.volume}"/>-->
-<!--    </bean>-->
-</beans>
+<!--&lt;!&ndash;        <property name="musicList">&ndash;&gt;-->
+<!--&lt;!&ndash;            <list>&ndash;&gt;-->
+<!--&lt;!&ndash;                <ref bean="musicRock"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                <ref bean="musicClassic"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                <ref bean="musicJazz"/>&ndash;&gt;-->
+<!--&lt;!&ndash;            </list>&ndash;&gt;-->
+<!--&lt;!&ndash;        </property>&ndash;&gt;-->
+<!--&lt;!&ndash;        <property name="name" value="${musicPlayer.name}"/>&ndash;&gt;-->
+<!--&lt;!&ndash;        <property name="volume" value="${musicPlayer.volume}"/>&ndash;&gt;-->
+<!--&lt;!&ndash;    </bean>&ndash;&gt;-->
+<!--</beans>-->

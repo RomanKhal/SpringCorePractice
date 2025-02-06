@@ -4,20 +4,21 @@
 package springcorepractice;
 
 
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import springcorepractice.music.MusicGenres;
 
 public class App {
     public static void main(String[] args) {
-        ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
+        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(SpringConfig.class);
         MusicPlayer musicPlayer = applicationContext.getBean("musicPlayer", MusicPlayer.class);
         MusicPlayer musicPlayer2 = applicationContext.getBean("musicPlayer", MusicPlayer.class);
         boolean comp = musicPlayer == musicPlayer2;
         System.out.println(comp);
 
-        System.out.println(musicPlayer);
-        System.out.println(musicPlayer2);
-        System.out.println(musicPlayer.playMusic(MusicGenres.ROCK));
+        System.out.println(musicPlayer.getName());
+        System.out.println(musicPlayer2.getName());
+        System.out.println(musicPlayer.playMusic());
         applicationContext.close();
     }
 }
