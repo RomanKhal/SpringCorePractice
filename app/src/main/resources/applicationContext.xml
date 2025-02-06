@@ -10,28 +10,37 @@
     <context:property-placeholder location="musicPlayer.properties"/>
 
     <bean id="musicRock"
-          class="springcorepractice.music.RockMusic">
+          class="springcorepractice.music.RockMusic"
+          init-method="doInit"
+          destroy-method="doDestroy">
     </bean>
 
     <bean id="musicClassic"
-          class="springcorepractice.music.ClassicalMusic">
+          class="springcorepractice.music.ClassicalMusic"
+          init-method="doInit"
+          destroy-method="doDestroy"
+          factory-method="getClassicalMusic">
     </bean>
 
     <bean id="musicJazz"
-          class="springcorepractice.music.JazzMusic">
+          class="springcorepractice.music.JazzMusic"
+          init-method="doInit"
+          destroy-method="doDestroy">
     </bean>
 
     <bean id="musicPlayer"
           class="springcorepractice.MusicPlayer"
-    scope="prototype">
+          scope="prototype"
+          init-method="doInit"
+          destroy-method="doDestroy">
 
-<!--        <constructor-arg>-->
-<!--            <list>-->
-<!--                <ref bean="musicRock"/>-->
-<!--                <ref bean="musicClassic"/>-->
-<!--                <ref bean="musicJazz"/>-->
-<!--            </list>-->
-<!--        </constructor-arg>-->
+        <!--        <constructor-arg>-->
+        <!--            <list>-->
+        <!--                <ref bean="musicRock"/>-->
+        <!--                <ref bean="musicClassic"/>-->
+        <!--                <ref bean="musicJazz"/>-->
+        <!--            </list>-->
+        <!--        </constructor-arg>-->
 
         <property name="musicList">
             <list>

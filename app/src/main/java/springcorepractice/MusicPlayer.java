@@ -5,7 +5,7 @@ import springcorepractice.music.Music;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MusicPlayer {
+public class MusicPlayer implements InitDestroy{
     private List<Music> musicList = new ArrayList<>();
     private String name;
     private int volume;

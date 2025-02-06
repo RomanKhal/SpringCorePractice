@@ -1,6 +1,8 @@
 package springcorepractice.music;
 
-public class RockMusic implements Music {
+import springcorepractice.InitDestroy;
+
+public class RockMusic implements Music, InitDestroy {
     @Override
     public String getSong() {
         return "rock song";
