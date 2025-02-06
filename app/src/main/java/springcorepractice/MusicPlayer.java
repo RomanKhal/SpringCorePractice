@@ -1,25 +1,34 @@
 package springcorepractice;
 
+import jakarta.annotation.PostConstruct;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 import springcorepractice.music.Music;
+import springcorepractice.music.MusicGenres;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
-public class MusicPlayer implements InitDestroy{
-    private List<Music> musicList = new ArrayList<>();
+@Component
+@Scope(scopeName = "prototype")
+public class MusicPlayer implements InitDestroy {
+    @Autowired
+    @Qualifier("rockMusic")
+    private Music music1;
+    @Autowired
+    @Qualifier("classicalMusic")
+    private Music music2;
+    @Value("${musicPlayer.name}")
     private String name;
+    @Value("${musicPlayer.volume}")
     private int volume;
 
-    public MusicPlayer(){}
-
-    public MusicPlayer(List<Music> musicList) {
-        this.musicList = musicList;
+    public MusicPlayer() {
     }
 
-
-    public void setMusicList(List<Music> musicList) {
-        this.musicList = musicList;
-    }
 
     public String getName() {
         return name;
@@ -37,11 +46,20 @@ public class MusicPlayer implements InitDestroy{
         this.volume = volume;
     }
 
-    public void playMusic(){
-        System.out.println(musicList.size());
-        for (var music : musicList){
-            System.out.println("Plays " + music.getSong());
+    public String playMusic(MusicGenres value) {
+        switch (value) {
+            case ROCK -> {
+                return chooseSong(music1);
+            }
+            case CLASSICAL -> {
+                return chooseSong(music2);
+            }
         }
-        System.out.println("Name=" + this.getName() + " volume=" + this.getVolume());
+        return "it's not a rock or classic genre";
+    }
+
+    private String chooseSong(Music music) {
+        List<String> songs = music.getSongs();
+        return songs.get(new Random().nextInt(songs.size()));
     }
 }

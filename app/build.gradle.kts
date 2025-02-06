@@ -20,6 +20,7 @@ dependencies {
     implementation("org.springframework:spring-core:6.2.0")
     implementation("org.springframework:spring-beans:6.2.0")
     implementation("org.springframework:spring-context:6.2.0")
+    implementation("jakarta.annotation:jakarta.annotation-api:2.1.1")
 
     // Use JUnit Jupiter for testing.
     testImplementation(libs.junit.jupiter)

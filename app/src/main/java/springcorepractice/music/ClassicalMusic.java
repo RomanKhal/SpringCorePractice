@@ -1,15 +1,16 @@
 package springcorepractice.music;
 
+import org.springframework.stereotype.Component;
 import springcorepractice.InitDestroy;
 
+import java.util.List;
+import java.util.Random;
+
+@Component
 public class ClassicalMusic implements Music, InitDestroy {
-    private ClassicalMusic(){}
-    public static ClassicalMusic getClassicalMusic(){
-        System.out.println("used fabric method " + ClassicalMusic.class.getSimpleName());
-        return new ClassicalMusic();
-    }
+    private List<String> songs= List.of("classic song1","classic song2","classic song3");
     @Override
-    public String getSong() {
-        return "classic song";
+    public List<String> getSongs() {
+        return songs;
     }
 }
