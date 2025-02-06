@@ -5,7 +5,6 @@ package springcorepractice;
 
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import springcorepractice.music.Music;
 
 public class App {
     public static void main(String[] args) {
@@ -18,6 +17,6 @@ public class App {
         System.out.println(musicPlayer);
         System.out.println(musicPlayer2);
 //        musicPlayer.playMusic();
-//        applicationContext.close();
+        applicationContext.close();
     }
 }
